@@ -1,0 +1,102 @@
+{
+  "api": {
+    "titles": [
+      "Дизайн Квартира. Рядом с Рейном, метро, ярмарка.",
+      "Вилла. Le Vésinet.",
+      "Очаровательный дом с патио и большим двором!",
+      "Роскошная квартира c высокими потолками недалеко от центра.",
+      "Уютная студия в центре Брюсселя.",
+      "Апартаменты.",
+      "Современная и солнечная квартира в центре.",
+      "Роскошный лофт в центральном районе каналов и музеев",
+      "Стильная квартира на первом этаже с романтическим садом"
+    ],
+    "descriptions": [
+      "Мы приветствуем вас в нашей уютной квартире 33qm, расположенной на популярной Нордштрассе, которая находится всего в 1 км от старого города и центра города, Рейн находится в 650 метрах и в 7 минутах.",
+      "Посетите Париж и отдохните в этом спокойном, стильном жилье всего в нескольких минутах от центра Парижа!",
+      "Сделайте перерыв и расслабьтесь в этом тихом оазисе. Будь то в одиночку, парой или небольшой семьей.",
+      "Яркая, современная и уютная квартира с дизайнерской ванной комнатой и мебелью. Расположенный в центре и тихом районе Kwartier Latäng.",
+      "Удобный, расположенный в центре меблированный пентхаус в центре Брюсселя. Расположение в пешеходной зоне, недалеко от знаменитых торговых улиц и в нескольких минутах ходьбы от Гран-Плас.",
+      "Роскошные и просторные апартаменты с большим балконом и потрясающим видом, квартира предлагает вам все необходимое для прекрасного пребывания в Амстердаме",
+      "Привлекательно обставленная мансардная студия с прикрепленной террасой на крыше с видом на город и восходами солнца",
+      "Романтическая ЛОФТ на самом благородном канале в центре Амстердама: Herengracht. Лофт имеет красивую традиционную архитектуру, высокие потолки и окна, деревянную отделку и множество деталей, художественный декор.",
+      "Очень хорошая отремонтированная уютная квартира с 1 спальней на первом этаже недавно отремонтированного здания в центре самой красивой части Амстердама: Джордан. В пешей доступности от баров, каналов, рынков, ресторанов, магазинов и общественного транспорта",
+      "Коттедж находится недалеко от Sacré Coeur, Place du Tertre, на вершине холма Монмартр. Вы оцените спокойствие, небольшой замощенный дворик, в центре Монмартра, двойную экспозицию. Квартира идеально подходит для пар, одиночных и деловых путешественников."
+    ],
+    "cities": [
+      "Paris",
+      "Cologne",
+      "Brussels",
+      "Amsterdam",
+      "Hamburg",
+      "Dusseldorf"
+    ],
+    "previewImages": [
+      "Preview1.jpg",
+      "Preview2.jpg",
+      "Preview3.jpg",
+      "Preview4.jpg",
+      "Preview5.jpg"
+    ],
+    "photos": [
+      "photo-apartment-1.jpg;photo-apartment-2.jpg;photo-apartment-3.jpg;photo-apartment-4.jpg;photo-apartment-5.jpg;photo-apartment-6.jpg",
+      "photo-townhouse-1.jpg;photo-townhouse-2.jpg;photo-townhouse-3.jpg;photo-townhouse-4.jpg;photo-townhouse-5.jpg;photo-townhouse-6.jpg",
+      "photo-vila-1.jpg;photo-vila-2.jpg;photo-vila-3.jpg;photo-vila-4.jpg;photo-vila-5.jpg;photo-vila-6.jpg",
+      "photo-chalet-1.jpg;photo-chalet-2.jpg;photo-chalet-3.jpg;photo-chalet-4.jpg;photo-chalet-5.jpg;photo-chalet-6.jpg",
+      "photo-loft-1.jpg;photo-loft-2.jpg;photo-loft-3.jpg;photo-loft-4.jpg;photo-loft-5.jpg;photo-loft-6.jpg"
+    ],
+    "housingType": [
+      "Apartment",
+      "House",
+      "Room",
+      "Hotel"
+    ],
+    "features": [
+      "Breakfast",
+      "Air conditioning",
+      "Laptop friendly workspace",
+      "Baby seat",
+      "Washer",
+      "Towels",
+      "Fridge"
+    ],
+    "users": [
+      "Lea Maurice",
+      "Robert Fletcher",
+      "Olaf Meier",
+      "Marieanne Taft",
+      "Anke Weber",
+      "Fabian Schlosser",
+      "Peter Bertrand",
+      "Eleonore Levett",
+      "Annette Deneuve",
+      "Elisabeth Lafleur"
+    ],
+    "emails": [
+      "paris-rent@mail.com",
+      "cologne-rent@mail.com",
+      "brussels-rent@mail.com",
+      "amsterdam-rent@mail.com",
+      "hamburg-rent@mail.com",
+      "dusseldorf-rent@mail.com"
+    ],
+    "avatars": [
+      "avatar-1.jpg",
+      "avatar-2.jpg",
+      "avatar-3.jpg",
+      "avatar-4.jpg",
+      "avatar-5.jpg"
+    ],
+    "passwords": [
+      "password-1",
+      "password-2",
+      "password-3",
+      "password-4",
+      "password-5"
+    ],
+    "userTypes": [
+      "Default",
+      "Pro"
+    ]
+  }
+}
