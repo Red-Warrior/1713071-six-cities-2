@@ -11,6 +11,17 @@ export default class GenerateCommand implements CliCommandInterface {
 
   public async execute(...parameters: string[]): Promise<void> {
     const [count, filepath, url] = parameters;
+
+    if (!count) {
+      return console.error(chalk.red('Отсутствует обязательный параметр count: Количество итераций записи данных.'));
+    }
+    if (!filepath) {
+      return console.error(chalk.red('Отсутствует обязательный параметр filepath: Путь к файлу для записи данных.'));
+    }
+    if (!url) {
+      return console.error(chalk.red('Отсутствует обязательный параметр url: Адрес сервера для считывания данных.'));
+    }
+
     const offerCount = Number.parseInt(count, 10);
 
     try {
