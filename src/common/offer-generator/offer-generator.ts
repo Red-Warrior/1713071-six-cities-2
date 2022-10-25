@@ -39,7 +39,7 @@ export default class OfferGenerator implements OfferGeneratorInterface {
     const previewImage = getRandomItem<string>(this.mockData.previewImages);
     const photos = getRandomItem<string>(this.mockData.photos);
     const isPremium = Boolean(generateRandomValue(0, 1)).toString();
-    const isFavourites = Boolean(generateRandomValue(0, 1)).toString();
+    const isFavorite = Boolean(generateRandomValue(0, 1)).toString();
     const rating = generateRandomValue(MockConfig.MIN_RATING, MockConfig.MAX_RATING - 1, 1).toString();
     const type = getRandomItem<string>(this.mockData.housingType);
     const rooms = generateRandomValue(MockConfig.MIN_ROOMS, MockConfig.MAX_ROOMS).toString();
@@ -49,7 +49,6 @@ export default class OfferGenerator implements OfferGeneratorInterface {
     const numberOfComments = generateRandomValue(MockConfig.MIN_COMMENTS, MockConfig.MAX_COMMENTS);
 
     const userName = getRandomItem<string>(this.mockData.users);
-    const [firstname, lastname] = userName.split(' ');
     const email = getRandomItem<string>(this.mockData.emails);
     const avatar = getRandomItem<string>(this.mockData.avatars);
     const password = getRandomItem<string>(this.mockData.passwords);
@@ -68,15 +67,14 @@ export default class OfferGenerator implements OfferGeneratorInterface {
       previewImage,
       photos,
       isPremium,
-      isFavourites,
+      isFavorite,
       rating,
       type,
       rooms,
       guests,
       price,
       features,
-      firstname,
-      lastname,
+      userName,
       email,
       avatar,
       password,

@@ -16,8 +16,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
   constructor(data: User) {
     super();
 
-    this.firstname = data.firstname;
-    this.lastname = data.lastname;
+    this.name = data.name;
     this.email = data.email;
     this.avatar = data.avatar;
     this.password = data.password;
@@ -27,18 +26,10 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
   @prop({
     required: true,
     default: '',
-    minlength: [1, 'Min length for firstname is 1'],
-    maxlength: [15, 'Max length for firstname is 15'],
+    minlength: [1, 'Min length for name is 1'],
+    maxlength: [15, 'Max length for name is 15'],
   })
-  public firstname!: string;
-
-  @prop({
-    required: true,
-    default: '',
-    minlength: [1, 'Min length for lastname is 1'],
-    maxlength: [15, 'Max length for lastname is 15'],
-  })
-  public lastname!: string;
+  public name!: string;
 
   @prop({
     required: true,

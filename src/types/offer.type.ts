@@ -13,7 +13,7 @@ export type Offer = {
   previewImage: string,
   photos: string[],
   isPremium: boolean,
-  isFavourites: boolean,
+  isFavorite: boolean,
   rating: number,
   type: HousingType,
   rooms: number,

@@ -9,8 +9,8 @@ export const createOffer = (row: string) => {
   const tokens = row.replace('\n', '').split('\t');
   const [
     title, description, postDate, city, latitude, longitude, previewImage, photos,
-    isPremium, isFavourites, rating, type, rooms, guests, price, features, firstname,
-    lastname, email, avatar, password, userType, numberOfComments
+    isPremium, isFavorite, rating, type, rooms, guests, price, features, name,
+    email, avatar, password, userType, numberOfComments
   ] = tokens;
   return {
     title,
@@ -24,7 +24,7 @@ export const createOffer = (row: string) => {
     previewImage,
     photos: photos.split(';'),
     isPremium: isPremium === 'true',
-    isFavourites: isFavourites === 'true',
+    isFavorite: isFavorite === 'true',
     rating: parseInt(rating, 10),
     type: type as HousingType,
     rooms: parseInt(rooms, 10),
@@ -32,8 +32,7 @@ export const createOffer = (row: string) => {
     price: parseFloat(price),
     features: features.split(';').map((feature) => feature as FeatureType),
     author: {
-      firstname,
-      lastname,
+      name,
       email,
       avatar,
       password,
