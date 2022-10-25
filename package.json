@@ -10,13 +10,17 @@
   "main": "main.js",
   "scripts": {
     "start": "npm run build && node ./dist/main.js",
-    "start:dev": "npm run ts ./src/main.ts | pino-pretty --colorize --translateTime SYS:standard",
+    "start:dev": "nodemon",
     "build": "npm run clean && npm run compile",
     "lint": "eslint src/ --ext .ts",
     "compile": "tsc -p tsconfig.json",
     "clean": "rimraf dist",
     "ts": "ts-node",
-    "mock:server": "json-server ./mocks/mock-server-data.json --port 3123"
+    "mock:server": "json-server ./mocks/mock-server-data.json --port 3123",
+    "generate": "npm run ts ./src/cli.ts -- --generate 10 ./mocks/test.tsv http://localhost:3123/api",
+    "data-base": "npm run ts ./src/cli.ts -- --import ./mocks/mock-data.tsv admin test 127.0.0.1 course-nodejs-restapi secret",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
   },
   "devDependencies": {
     "@types/convict": "^6.1.1",

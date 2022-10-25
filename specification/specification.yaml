@@ -274,7 +274,7 @@ paths:
         '404':
           $ref: '#/components/responses/404-NotFound'
 
-  /favourites:
+  /favorites:
     get:
       tags:
         - favorites
@@ -296,10 +296,10 @@ paths:
         '401':
           $ref: '#/components/responses/401-UnAuthorized'
 
-  /favourites/{offerId}:
+  /favorites/{offerId}:
     post:
       summary: Добавление и удаление предложения в/из избранного.
-      description: Возвращает предложение с актуальным состоянием поля, «isFavourites». Требуется авторизация.
+      description: Возвращает предложение с актуальным состоянием поля, «isFavorite». Требуется авторизация.
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/offerId'
@@ -345,7 +345,7 @@ paths:
                   $ref: '#/components/schemas/comment'
 
         '400':
-         $ref: '#/components/responses/400-BadRequest'
+          $ref: '#/components/responses/400-BadRequest'
 
         '404':
           $ref: '#/components/responses/404-NotFound'
@@ -472,7 +472,7 @@ components:
         - previewImage
         - photos
         - isPremium
-        - isFavourites
+        - isFavorite
         - rating
         - type
         - rooms
@@ -540,7 +540,7 @@ components:
           type: boolean
           example: true
 
-        isFavourites:
+        isFavorite:
           type: boolean
           example: true
 
@@ -583,12 +583,12 @@ components:
             type: string
           example: [
             Breakfast
-            AirConditioning
-            Workspace
-            BabySeat
-            Washer
-            Towels
-            Fridge
+              AirConditioning
+              Workspace
+              BabySeat
+              Washer
+              Towels
+              Fridge
           ]
           enum:
             - Breakfast
@@ -644,6 +644,10 @@ components:
           minimum: 1
           maximum: 5
           example: 3.7
+
+        offerId:
+          type: number
+          example: offEr10Id0aF
 
         author:
           $ref: '#/components/schemas/user'
