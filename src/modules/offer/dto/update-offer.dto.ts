@@ -4,7 +4,7 @@ import { HousingType } from '../../../types/housing-type.enum.js';
 import { FeatureType } from '../../../types/feature-type.enum.js';
 import { User } from '../../../types/user.type.js';
 
-export default class CreateOfferDto {
+export default class UpdateOfferDto {
   title?: string;
   description?: string;
   postDate?: Date;
