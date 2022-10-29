@@ -7,7 +7,7 @@ enum MockConfig {
   MIN_RATING = 1,
   MAX_RATING = 2,
   MIN_ROOMS = 1,
-  MAX_ROOMS = 10,
+  MAX_ROOMS = 8,
   MIN_GUESTS = 1,
   MAX_GUESTS = 10,
   MIN_PRICE = 100,

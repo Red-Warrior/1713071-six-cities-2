@@ -107,7 +107,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({
     required: true,
     min: 100,
-    max: 10000
+    max: 100000
   })
   public price!: number;
 
