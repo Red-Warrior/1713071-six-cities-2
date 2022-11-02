@@ -1,9 +1,6 @@
-import { UserType } from '../../../types/user-type.enum.js';
+import { Matches } from 'class-validator';
 
-export default class CreateUserDto {
-  public name?: string;
-  public email?: string;
+export default class UpdateUserDto {
+  @Matches(/\.(jpg|png)$/, { message: 'Avatar image must be in jpg or png format' })
   public avatar?: string;
-  public password?: string;
-  public type?: UserType;
 }
