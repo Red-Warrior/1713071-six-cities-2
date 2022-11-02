@@ -6,3 +6,4 @@ export const USER_CONSTANT = {
 } as const;
 
 export const DEFAULT_AVATAR_IMAGE = 'default-avatar.jpg';
+export const JWT_ALGORITHM = 'HS256';

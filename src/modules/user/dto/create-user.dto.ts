@@ -1,6 +1,6 @@
 import { IsEmail, IsEnum, IsString, Length, Matches } from 'class-validator';
 import { UserType } from '../../../types/user-type.enum.js';
-import { USER_CONSTANT } from '../user.constants.js';
+import { USER_CONSTANT } from '../user.constant.js';
 
 const { MIN_USERNAME, MAX_USERNAME, MIN_PASSWORD, MAX_PASSWORD } = USER_CONSTANT;
 

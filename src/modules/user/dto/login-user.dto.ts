@@ -1,5 +1,5 @@
 import { IsEmail, Length } from 'class-validator';
-import { USER_CONSTANT } from '../user.constants.js';
+import { USER_CONSTANT } from '../user.constant.js';
 
 const { MIN_PASSWORD, MAX_PASSWORD } = USER_CONSTANT;
 
