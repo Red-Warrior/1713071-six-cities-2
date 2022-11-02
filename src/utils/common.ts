@@ -1,3 +1,4 @@
+import * as jose from 'jose';
 import crypto from 'crypto';
 import { ClassConstructor, plainToInstance } from 'class-transformer';
 import { Offer } from '../types/offer.type.js';
@@ -57,3 +58,10 @@ export const fillDTO = <T, V>(responseObject: ClassConstructor<T>, plainObject: 
 export const createErrorObject = (message: string) => ({
   error: message,
 });
+
+export const createJWT = async (algorithm: string, jwtSecret: string, payload: object): Promise<string> =>
+  new jose.SignJWT({ ...payload })
+    .setProtectedHeader({ alg: algorithm })
+    .setIssuedAt()
+    .setExpirationTime('2d')
+    .sign(crypto.createSecretKey(jwtSecret, 'utf-8'));
