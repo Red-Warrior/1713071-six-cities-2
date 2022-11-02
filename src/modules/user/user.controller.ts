@@ -95,9 +95,7 @@ export default class UserController extends Controller {
     );
   }
 
-  public async uploadAvatar(req: Request, res: Response) {
-    this.created(res, {
-      filepath: req.file?.path
-    });
+  public async uploadAvatar(req: Request, res: Response): Promise<void> {
+    this.created(res, { filepath: req.file?.path });
   }
 }

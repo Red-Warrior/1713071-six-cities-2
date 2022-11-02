@@ -11,6 +11,7 @@ export type ConfigSchema = {
   DB_PASSWORD: string;
   DB_PORT: number;
   DB_NAME: string;
+  UPLOAD_DIRECTORY: string
 }
 
 export const configSchema = convict<ConfigSchema>({
@@ -56,4 +57,10 @@ export const configSchema = convict<ConfigSchema>({
     env: 'DB_NAME',
     default: 'course-nodejs-restapi'
   },
+  UPLOAD_DIRECTORY: {
+    doc: 'Directory for upload files',
+    format: String,
+    env: 'UPLOAD_DIRECTORY',
+    default: null
+  }
 });
