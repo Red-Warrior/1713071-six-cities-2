@@ -19,21 +19,18 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({
     trim: true,
     required: true,
-    minlength: [10, 'Min length for title is 10'],
-    maxlength: [100, 'Max length for title is 100'],
+    minlength: 10,
+    maxlength: 100,
   })
   public title!: string;
 
   @prop({
     trim: true,
     required: true,
-    minlength: [20, 'Min length for description is 20'],
-    maxlength: [1024, 'Max length for description is 1024'],
+    minlength: 20,
+    maxlength: 1024,
   })
   public description!: string;
-
-  @prop({ required: true })
-  public postDate!: Date;
 
   @prop({
     required: true,
