@@ -129,12 +129,24 @@ Content-Type: application/json
 ###
 
 ## Список комментариев к объявлению
-GET http://localhost:10000/offers/628a27d729c45f2bf9f6806a/comments HTTP/1.1
+GET http://localhost:10000/offers/635c3694bd23250e7e478e01/comments HTTP/1.1
 
 ###
 
 ## Удаление объявления
 
-DELETE http://localhost:10000/offers/62825028a75295825778ac80 HTTP/1.1
+DELETE http://localhost:10000/offers/635c3694bd23250e7e478e01 HTTP/1.1
 
 ###
+
+## Отправка аватарки пользователю
+
+POST http://localhost:10000/users/635c3694bd23250e7e478e01/avatar HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="screen.png"
+Content-Type: image/png
+
+< ./markup/img/avatar.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
