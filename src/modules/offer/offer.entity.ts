@@ -7,7 +7,8 @@ import { FeatureType } from '../../types/feature-type.enum.js';
 
 const { prop, modelOptions } = typegoose;
 
-export interface OfferEntity extends defaultClasses.Base {}
+export interface OfferEntity extends defaultClasses.Base {
+}
 
 @modelOptions({
   schemaOptions: {
@@ -44,7 +45,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   })
   public location!: Location;
 
-  @prop({ required: true })
+  @prop({ default: '' })
   public previewImage!: string;
 
   @prop({
@@ -60,7 +61,10 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ required: true })
   public isPremium!: boolean;
 
-  @prop({ required: true })
+  @prop({
+    required: true,
+    default: false
+  })
   public isFavorite!: boolean;
 
   @prop({
@@ -114,6 +118,9 @@ export class OfferEntity extends defaultClasses.TimeStamps {
     enum: FeatureType,
   })
   public features!: FeatureType[];
+
+  @prop({ ref: UserEntity, default: [] })
+  public favorites!: Ref<UserEntity>[];
 
   @prop({
     required: true,

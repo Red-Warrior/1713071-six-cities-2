@@ -24,12 +24,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
     this.type = data.type;
   }
 
-  @prop({
-    required: true,
-    default: '',
-    minlength: 1,
-    maxlength: 15,
-  })
+  @prop({ required: true, default: '' })
   public name!: string;
 
   @prop({
@@ -39,21 +34,15 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
   })
   public email!: string;
 
-  @prop({
-    default: 'default-avatar.jpg',
-    match: [/\.(jpg|png)$/, 'The image must be in jpg or png format']
-  })
+  @prop({ match: [/\.(jpg|png)$/, 'The image must be in jpg or png format'] })
   public avatar!: string;
 
-  @prop({
-    required: true,
-    default: '',
-  })
+  @prop({ required: true, default: '', })
   public password!: string;
 
   @prop({
     required: true,
-    default: 'Default',
+    default: UserType.Default,
     enum: UserType
   })
   public type!: UserType;

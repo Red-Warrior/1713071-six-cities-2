@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express';
 import * as jose from 'jose';
+import { NextFunction, Request, Response } from 'express';
 import { MiddlewareInterface } from '../../types/middleware.interface.js';
 import { createSecretKey } from 'crypto';
 import HttpError from '../errors/http-error.js';
@@ -22,7 +22,6 @@ export class AuthenticateMiddleware implements MiddlewareInterface {
 
       return next();
     } catch {
-
       return next(new HttpError(
         StatusCodes.UNAUTHORIZED,
         'Invalid token',

@@ -78,6 +78,10 @@ export default class CreateOfferDto {
   public isPremium?: boolean;
 
   @IsOptional()
+  @IsBoolean()
+  public isFavorite?: boolean;
+
+  @IsOptional()
   @IsEnum(HousingType, { message: 'Type must be Apartment, House, Room or Hotel' })
   public type?: HousingType;
 

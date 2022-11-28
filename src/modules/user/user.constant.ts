@@ -5,5 +5,5 @@ export const USER_CONSTANT = {
   MAX_PASSWORD: 12
 } as const;
 
-export const DEFAULT_AVATAR_IMAGE = 'default-avatar.jpg';
+export const DEFAULT_AVATAR_FILE_NAME = 'default-avatar.jpg';
 export const JWT_ALGORITHM = 'HS256';

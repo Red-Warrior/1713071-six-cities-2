@@ -14,7 +14,7 @@ export default class HelpCommand implements CliCommandInterface {
             ${chalk.hex('#b5e653')('--version:                   # выводит номер версии')}
             ${chalk.hex('#64e653')('--help:                      # печатает этот текст')}
             ${chalk.hex('#53e6ab')('--import <path>:             # импортирует данные из TSV')}
-            ${chalk.hex('53d0e6')('--generate <n> <path> <url> # генерирует произвольное количество тестовых данных')}
+            ${chalk.hex('53d0e6')('--generate <count> <path> <url> # генерирует произвольное количество <count> тестовых данных')}
         `);
   }
 }

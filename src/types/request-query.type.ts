@@ -15,5 +15,5 @@ export type ParamsFavoriteStatus = {
   status: boolean;
 }
 
-export type ParamsChangeFavorites = ParamsGetOffer & ParamsGetUser & ParamsFavoriteStatus
+export type ParamsChangeFavorites = ParamsGetOffer & ParamsFavoriteStatus
 
