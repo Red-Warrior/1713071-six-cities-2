@@ -1,4 +1,4 @@
-import { IsEmail, IsEnum, IsString, Length, Matches } from 'class-validator';
+import { IsEmail, IsEnum, IsString, Length } from 'class-validator';
 import { UserType } from '../../../types/user-type.enum.js';
 import { USER_CONSTANT } from '../user.constant.js';
 
@@ -12,9 +12,6 @@ export default class CreateUserDto {
 
   @IsEmail({}, { message: 'Email must be valid email address' })
   public email!: string;
-
-  @Matches(/\.(jpg|png)$/, { message: 'Avatar image must be in jpg or png format' })
-  public avatar!: string;
 
   @Length(MIN_PASSWORD, MAX_PASSWORD,
     { message: `Minimum length of the name must be ${MIN_PASSWORD}, maximum length must be ${MAX_PASSWORD}` })

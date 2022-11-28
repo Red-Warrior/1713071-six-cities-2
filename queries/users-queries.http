@@ -1,0 +1,75 @@
+# Пользователи
+## Создание/регистрация пользователя
+POST {{baseUrl}}/users/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "paris-rent@mail.com",
+  "name": "Marieanne",
+  "password": "userPassword"
+}
+
+###
+
+## Авторизация пользователя
+
+POST {{baseUrl}}/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "paris-rent@mail.com",
+  "password": "userPassword"
+}
+
+###
+
+## Проверка токена пользователя
+GET {{baseUrl}}/users/login HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+## Ошибка создания/регистрации пользователя
+POST {{baseUrl}}/users/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "brussels-rent@mail.com",
+  "name": "Annette",
+  "password": "userPassword1"
+}
+
+###
+
+## Ошибка авторизации пользователя
+
+POST {{baseUrl}}/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "brussels-rent@mail.com",
+  "password": "userPassword1"
+}
+
+###
+
+## Выход из авторизации
+POST {{baseUrl}}/users/login HTTP/1.1
+Content-Type: application/json
+
+###
+
+## Отправка аватарки пользователю
+POST {{baseUrl}}/users/635c3694bd23250e7e478e01/avatar HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="screen.png"
+Content-Type: image/png
+
+< ../../markup/img/avatar.png
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###

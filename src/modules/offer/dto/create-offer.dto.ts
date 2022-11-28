@@ -11,7 +11,6 @@ import {
   IsEnum,
   IsNumber,
   IsInt,
-  IsMongoId,
   Matches,
   Min,
   Max,
@@ -58,9 +57,6 @@ export default class CreateOfferDto {
   @Type(() => Location)
   public location!: Location;
 
-  @Matches(/\.(jpg|png)$/, { message: 'Preview image must be in jpg or png format' })
-  public previewImage!: string;
-
   @IsArray({ message: 'Photos must be an array' })
   @ArrayMinSize(PHOTOS_LENGTH, { message: `Number of photos must be ${PHOTOS_LENGTH}` })
   @ArrayMaxSize(PHOTOS_LENGTH, { message: `Number of photos must be ${PHOTOS_LENGTH}` })
@@ -92,6 +88,5 @@ export default class CreateOfferDto {
   @IsEnum(FeatureType, { message: 'Feature must be from suggested list' })
   public features!: FeatureType[];
 
-  @IsMongoId({ message: 'UserId field must be valid an id' })
   public userId!: string;
 }

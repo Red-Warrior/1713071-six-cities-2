@@ -4,7 +4,7 @@ import multer, { diskStorage } from 'multer';
 import mime from 'mime-types';
 import { MiddlewareInterface } from '../../types/middleware.interface.js';
 
-export class UploadFileMiddleware implements MiddlewareInterface {
+export class UploadFileArrayMiddleware implements MiddlewareInterface {
   constructor(
     private uploadDirectory: string,
     private fieldName: string,
@@ -20,7 +20,7 @@ export class UploadFileMiddleware implements MiddlewareInterface {
       }
     });
 
-    const uploadSingleFileMiddleware = multer({ storage }).single(this.fieldName);
+    const uploadSingleFileMiddleware = multer({ storage }).array(this.fieldName);
     uploadSingleFileMiddleware(req, res, next);
   }
 }

@@ -1,0 +1,28 @@
+# Комментарии
+## Создание комментария
+POST {{baseUrl}}/comments  HTTP/1.1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "text": "Отличное жильё для отдыха с друзьями, рекомендую!",
+  "rating": 3.7,
+  "offerId": {{offerId}}
+}
+
+###
+
+## Список комментариев к объявлению
+GET http://localhost:10000/offers/{{offerId}}/comments HTTP/1.1
+
+###
+
+## Показать комментарий по id объявления
+GET POST {{baseUrl}}/comments/{{offerId}}  HTTP/1.1
+
+###
+
+## Ошибка вывода комментария для объявления по id
+GET POST {{baseUrl}}/comments/635c3694b  HTTP/1.1
+
+###

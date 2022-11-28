@@ -17,15 +17,17 @@ import { ValidateObjectIdMiddleware } from '../../common/middlewares/validate-ob
 import { UploadFileMiddleware } from '../../common/middlewares/upload-file.middleware.js';
 import LoggedUserResponse from './response/logged-user.response.js';
 import { JWT_ALGORITHM } from './user.constant.js';
+import UploadUserAvatarResponse from './response/upload-user-avatar.response.js';
+import { PrivateRouteMiddleware } from '../../common/middlewares/private-route.middleware.js';
 
 @injectable()
 export default class UserController extends Controller {
   constructor(
     @inject(Component.LoggerInterface) logger: LoggerInterface,
+    @inject(Component.ConfigInterface) configService: ConfigInterface,
     @inject(Component.UserServiceInterface) private readonly userService: UserServiceInterface,
-    @inject(Component.ConfigInterface) private readonly configService: ConfigInterface
   ) {
-    super(logger);
+    super(logger, configService);
 
     this.logger.info('Register routes for UserController...');
 
@@ -44,10 +46,11 @@ export default class UserController extends Controller {
     });
 
     this.addRoute({
-      path: '/:userId/avatar',
+      path: '/avatar',
       method: HttpMethod.Post,
       handler: this.uploadAvatar,
       middlewares: [
+        new PrivateRouteMiddleware(),
         new ValidateObjectIdMiddleware('userId'),
         new UploadFileMiddleware(this.configService.get('UPLOAD_DIRECTORY'), 'avatar'),
       ]
@@ -60,9 +63,10 @@ export default class UserController extends Controller {
   }
 
   public async create(
-    { body }: Request<Record<string, unknown>, Record<string, unknown>, CreateUserDto>,
+    req: Request<Record<string, unknown>, Record<string, unknown>, CreateUserDto>,
     res: Response,
   ): Promise<void> {
+    const { body } = req;
     const existsUser = await this.userService.findByEmail(body.email);
 
     if (existsUser) {
@@ -82,9 +86,10 @@ export default class UserController extends Controller {
   }
 
   public async login(
-    { body }: Request<Record<string, unknown>, Record<string, unknown>, LoginUserDto>,
+    req: Request<Record<string, unknown>, Record<string, unknown>, LoginUserDto>,
     res: Response,
   ): Promise<void> {
+    const { body } = req;
     const user = await this.userService.verifyUser(body, this.configService.get('SALT'));
 
     if (!user) {
@@ -101,16 +106,34 @@ export default class UserController extends Controller {
       { email: user.email, id: user.id }
     );
 
-    this.ok(res, fillDTO(LoggedUserResponse, { email: user.email, token }));
+    this.ok(res, {
+      ...fillDTO(LoggedUserResponse, user),
+      token
+    });
   }
 
-  public async checkAuthenticate(req: Request, res: Response) {
+  public async checkAuthenticate(req: Request, res: Response): Promise<void> {
+    if (!req.user) {
+      throw new HttpError(
+        StatusCodes.UNAUTHORIZED,
+        'Unauthorized',
+        'UserController'
+      );
+    }
     const user = await this.userService.findByEmail(req.user.email);
+
+    //TODO
+    // Можно добавить проверку, что `findByEmail` действительно
+    // находит пользователя в базе. Если пользователи не удаляются,
+    // проверки можно избежать.
 
     this.ok(res, fillDTO(LoggedUserResponse, user));
   }
 
   public async uploadAvatar(req: Request, res: Response): Promise<void> {
-    this.created(res, { filepath: req.file?.path });
+    const { userId } = req.params;
+    const uploadFile = { avatar: req.file?.filename };
+    await this.userService.updateById(userId, uploadFile);
+    this.created(res, fillDTO(UploadUserAvatarResponse, uploadFile));
   }
 }

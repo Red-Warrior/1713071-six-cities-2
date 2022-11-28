@@ -1,0 +1,190 @@
+#"userId": "635c37622e39c3d3283041fd",
+#  "numberOfComments": 50
+
+
+# Объявления
+## Объявление по идентификатору
+
+GET {{baseUrl}}/offers/{{offerId}} HTTP/1.1
+
+###
+
+## Список объявлений
+
+GET {{baseUrl}}/offers?limit=20 HTTP/1.1
+
+###
+
+## Создание объявления
+
+POST {{baseUrl}}/offers HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "title": "Очаровательный дом с патио и большим двором!",
+  "offerId": "635c3694bd23250e7e478e01",
+  "description": "Роскошные и просторные апартаменты с большим балконом и потрясающим видом",
+  "postDate": "2022-10-03T11:52:00",
+  "city": "Amsterdam",
+  "location": {
+    "latitude": 52.370216,
+    "longitude": 4.895168
+  },
+  "previewImage": "Preview1.jpg",
+  "photos": [
+    "photo-apartment-1.jpg",
+    "photo-apartment-2.jpg",
+    "photo-apartment-3.jpg",
+    "photo-apartment-4.jpg",
+    "photo-apartment-5.jpg",
+    "photo-apartment-6.jpg"
+  ],
+  "isPremium": true,
+  "rating": 4.6,
+  "type": "Apartment",
+  "rooms": 5,
+  "guests": 5,
+  "price": 7300,
+  "features": [
+    "Air conditioning",
+    "Laptop friendly workspace",
+    "Washer",
+    "Fridge"
+  ]
+}
+
+###
+
+## Удаление объявления
+
+DELETE {{baseUrl}}/offers/{{offerId}} HTTP/1.1
+Authorization: Bearer {{authToken}}
+
+###
+
+## Показать премиальные объявления
+GET {{baseUrl}}/offers/premium?city=Paris HTTP/1.1
+
+###
+
+## Обновление объявления
+
+PATCH {{baseUrl}}/offers/{{offerId}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "features": [
+    "Breakfast",
+    "Air conditioning",
+    "Laptop friendly workspace",
+    "Baby seat",
+    "Washer",
+    "Towels",
+    "Fridge"
+  ],
+  "price": 10000
+}
+
+###
+
+## Загрузить превью для объявления
+POST {{baseUrl}}/offers/{{offerId}}/previewImage HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Authorization: Bearer {{authToken}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="previewImage"; filename="apartment-01.jpg"
+Content-Type: image/png
+
+< ../markup/img/apartment-01.jpg
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+## Загрузить фотографии для объявления
+POST {{baseUrl}}/offers/{{offerId}}/photos HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Authorization: Bearer {{authToken}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="photos"; filename="apartment-01.jpg"
+Content-Type: image/png
+
+< ../markup/img/apartment-01.jpg
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="photos"; filename="apartment-02.jpg"
+Content-Type: image/png
+
+< ../markup/img/apartment-02.jpg
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="photos"; filename="apartment-03.jpg"
+Content-Type: image/png
+
+< ../markup/img/apartment-03.jpg
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+## Запрос с невалидным Id предложения
+GET {{baseUrl}}/offers/635c3694b HTTP/1.1
+
+###
+
+## Создание объявления с невалидными данными
+
+POST {{baseUrl}}/offers HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "title": "Очаровательный дом с патио и большим двором!",
+  "offerId": "635c3694bd23250e7e478e01",
+  "description": "Роскошные и просторные апартаменты с большим балконом и потрясающим видом",
+  "postDate": "2022-10-03T11:52:00",
+  "city": "Amsterdam",
+  "location": {
+    "latitude": 52.370216,
+    "longitude": 4.895168
+  },
+  "previewImage": "Preview1.jpg",
+  "photos": [
+    "photo-apartment-1.jpg",
+    "photo-apartment-2.jpg"
+  ],
+  "isPremium": true,
+  "rating": 4.6,
+  "type": "Apartment",
+  "rooms": 5,
+  "guests": 5,
+  "price": 7300,
+  "features": [
+    "Air conditioning",
+    "Laptop friendly workspace",
+    "Washer",
+    "Fridge"
+  ]
+}
+
+###
+
+## Получение списка избранных объявлений
+POST {{baseUrl}}/favorites HTTP/1.1
+Authorization: Bearer {{authToken}}
+
+###
+
+## Добавление объявления в список избранного
+POST {{baseUrl}}/favorites/{{offerId}}/true HTTP/1.1
+Authorization: Bearer {{authToken}}
+
+###
+
+## Удаление оюъявления из списока избранного
+POST {{baseUrl}}/favorites/{{offerId}}/false HTTP/1.1
+Authorization: Bearer {{authToken}}
